@@ -4,11 +4,13 @@ import subprocess
 import sys
 import time
 
-# Constants
-SERVER_DIR = os.path.expanduser("~/ad_server")
-PORT = 8080
-LOG_FILE = os.path.expanduser("~/ad_server/server.log")
+# Directory of the current script (start_server.py)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
+# Update constants to use the script's directory
+SERVER_DIR = SCRIPT_DIR
+PORT = 8080
+LOG_FILE = os.path.join(SCRIPT_DIR, "server.log")
 
 def acquire_wakelock():
     """Acquire the Termux wake-lock and confirm."""
